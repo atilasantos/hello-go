@@ -12,11 +12,15 @@ func main() {
 	log.SetFlags(0)
 	log.SetPrefix("Greetings: ")
 
-	message, err := greetings.Hello("")
+	names := []string{"Juanito", "Pedrito", "Carlito"}
+
+	messages, err := greetings.Hellos(names)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Message:" + message)
+	for name, message := range messages {
+		fmt.Printf("The %v has the following message: %v\n", name, message)
+	}
 
 }
